@@ -1,0 +1,145 @@
+using System;
+
+namespace dasar_programan_12
+{
+    class Program
+    {
+        static void Main(string[] args){
+            Console.WriteLine("========================  SELAMAT DATANG  ========================");
+            Console.WriteLine("======================== PENDATAAN DOSEN =========================");
+            Console.WriteLine("============================ PILIHAN =============================");
+            Console.WriteLine("====================== 1. LIST DOSEN =============================");
+            Console.WriteLine("====================== 2. DOSEN USIA 45 TH =======================");
+            Console.WriteLine("====================== 3. DOSEN PENGAJAR TI ======================");
+
+            String doseninput = Console.ReadLine();
+            switch(doseninput)
+            {
+                case "1" :
+                dataDosen();
+                break;
+
+                case "2" :
+                dataDosenUmur45();
+                break;
+
+                case "3" :
+                dataDosenPengajarTi();
+                break;
+            }
+
+        }
+
+        public static string [,] dosen = {  {"Ery Safrianti, ST., MT." , "197402242000032000TI"},
+                                            {"Noveri Iysberri M,ST., M.Sc" , "197311271999032000"},
+                                            {"Suwitno, ST., MT." , "196611021999031000"},
+                                            {"Dr. Azriyenni, ST., M.Eng" , "197304011999032000"},
+                                            {"Budhi Anto, ST., MT." , "197208132000121000"},
+                                            {"Feranita, ST., MT." , "197302012005012000"},
+                                            {"Linna Oktaviana Sari, ST., MT." , "197910152006042000"},
+                                            {"Dr. Indra Yasri, ST., MT." , "197403072002121000"},
+                                            {"Dr. Yusnita Rahayu,ST., M.Eng" , "197511042005012000"},
+                                            {"Dr. Fri Murdiya, MT." , "198002052003121000"},
+                                            {"Dr. Iswadi HR, ST., MT." , "197807152003121000"},
+                                            {"Dr. Feri Candra, MT." , "197404282002121000"},
+                                            {"Dr. Dahliyusmanto, S.Kom., M.Sc" , "197204222006041000"},
+                                            {"Dr. Anhar, ST., MT" , "197604092002121000"},
+                                            {"Dr. Ir. Antonius Rajagukguk, MT" , "196607311997021000"},
+                                            {"Nurhalim, ST., MT" , "197408202002121000"},
+                                            {"Dian Yayan Sukma, ST., MT" , "197803082003121000"},
+                                            {"Eddy Hamdani, ST., MT" , "196709081999031000"},
+                                            {"Rahyul Amri, ST., MT" , "196707231999031000"},
+                                            {"Amir Hamzah, ST., MT" , "197507052002121000"},
+                                            {"Ir. Edy Ervianto, MT" , "196412151997021000"},
+                                            {"Firdaus, ST., MT" , "197705102005011000"},
+                                            {"Salhazan Nasution, MIT" , "198611112009121000"},
+                                            {"Dr. Dewi Nasien, M.Sc" , null},
+                                            {"Rahmat Rizal Andhi, ST., MT" , "198312032019031000TI"},
+                                            {"Irsan Taufik Ali, ST., MT" , "198005102005011000TI"},
+                                            {"Dr. Febrizal, ST., MT" , "197802222002121000"},
+                                            {"Edi Susilo, S.Pd., M.Kom., M.Eng" , "199110292019031000TI"},
+                                            {"T. Yudi Handiwandra, M.Kom" , "197207122000121000"},
+                                            {"Dian Ramadhani, ST., MT" , "198805052020122000TI"},  
+        };
+    
+        static void dataDosen()
+        {
+            for(int i = 0; i < dosen.Length/2; i++)
+            {
+                string tahunLahir = dosen [i, 1].Substring(0,4);
+                int hasilAkhir = Convert.ToInt32(tahunLahir);
+                if(dosen[i,1]==null)
+                {
+                    continue;
+                }
+
+                int usia = 2021 - hasilAkhir;
+
+                Console.WriteLine("");
+                Console.WriteLine("Nama : " +dosen[i,1]);
+                Console.WriteLine("NIP : " +dosen[i,1].Substring(0,18));
+                Console.WriteLine("Tahun Lahir : " +tahunLahir);
+                Console.WriteLine("Umur : " +usia);
+                Console.WriteLine("");
+            }
+        }
+        static void dataDosenUmur45()
+        {
+            for(int i = 0; i < dosen.Length/2; i++)
+            {
+                if(dosen[i,1] == null)
+                {
+                    continue;
+                }
+
+                string tahunLahir = dosen [i, 1].Substring(0,4);
+                int hasilAkhir = Convert.ToInt32(tahunLahir);
+
+                int usia = 2021 - hasilAkhir;
+                if( usia < 45 )
+                {
+                    continue;
+                }
+
+                Console.WriteLine(" ");
+                Console.WriteLine("Nama : " +dosen[i,1]);
+                Console.WriteLine("NIP : " +dosen[i,1].Substring(0,18));
+                Console.WriteLine("Tahun Lahir : " +tahunLahir);
+                Console.WriteLine("Umur : " +usia);
+                Console.WriteLine(" ");
+            }
+        }
+        static void dataDosenPengajarTi()
+        {
+            for(int i = 0; i < dosen.Length/2; i++)
+            {
+                if(dosen[i,1]== null)
+                {
+                    continue;
+                }
+
+                string tahunLahir = dosen [i, 1].Substring(0,4);
+                int hasilAkhir = Convert.ToInt32(tahunLahir);
+
+                string dosenTi = dosen[i,1].Substring(0,4);
+                int usia = 2021 - hasilAkhir;
+
+                if(dosenTi == "TI")
+                {
+                    continue;
+                }
+
+                Console.WriteLine(" ");
+                Console.WriteLine("Nama : " +dosen[i,1]);
+                Console.WriteLine("NIP : " +dosen[i,1].Substring(0,18));
+                Console.WriteLine("Tahun Lahir : " +tahunLahir);
+                Console.WriteLine("Umur : " +usia);
+                Console.WriteLine(" ");
+            }
+        }
+    
+    }
+
+}
+
+
